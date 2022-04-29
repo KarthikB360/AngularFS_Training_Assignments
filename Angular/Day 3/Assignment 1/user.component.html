@@ -1,0 +1,30 @@
+<h2>User details:</h2>
+
+<table border ="2px" cellpadding="15"> 
+    <tr *ngFor="let user of users | slice : start : end">
+        <td>User ID: {{user.id}}<br>
+            Username: {{user.name | titlecase}}<br>
+            Title: {{user.title | lowercase}}<br>
+            Body: {{user.body | lowercase}}
+        </td>
+    </tr>
+</table>
+<button id = "button1" (click)="loadMore()" [disabled]="flag">Load more</button>
+<br><br>
+
+<p>Percent pipe demo<br>{{x | percent}}</p>
+
+
+<p>Custom pipe for employee grade demo:</p>
+<table border="1px">
+    <tr>
+        <th>Emp Number</th>
+        <th>Emp Name</th>
+        <th>Emp Grade</th>
+    </tr>
+    <tr *ngFor = "let emp of employees">
+        <td>{{emp.empNumber}}</td>
+        <td>{{emp.empName | titlecase}}</td>
+        <td>{{emp.empGrade | gradePipe}}</td>
+    </tr>
+</table>
