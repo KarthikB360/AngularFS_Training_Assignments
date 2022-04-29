@@ -1,0 +1,41 @@
+<h2>User details:</h2>
+
+<table border="2px" cellpadding="15">
+  <tr *ngFor="let user of users | slice: start:end">
+    <td>
+      User ID: {{ user.id }}<br />
+      Username: {{ user.name | titlecase }}<br />
+      Title: {{ user.title | lowercase }}<br />
+      Body: {{ user.body | lowercase }}
+    </td>
+  </tr>
+</table>
+<button id="button1" (click)="loadMore()" [disabled]="flag">Load more</button>
+<br /><br />
+
+<p>Percent pipe demo<br />{{ x | percent }}</p>
+
+<hr />
+<h3>Filter by salary</h3>
+Min: <input [(ngModel)]="filterMin" /> Max: <input [(ngModel)]="filterMax" />
+<button (click)="onFilter()">Filter</button>
+<br />
+<br />
+<table border="1px">
+  <tr>
+    <th>Emp Number</th>
+    <th>Emp Name</th>
+    <th>Emp Job</th>
+    <th>Emp Salary</th>
+    <th>Emp Dept number</th>
+    <th>Emp Grade</th>
+  </tr>
+  <tr *ngFor="let emp of employees | filterpipe: min:max">
+    <td>{{ emp.empNumber }}</td>
+    <td>{{ emp.empName | titlecase }}</td>
+    <td>{{ emp.empJob | titlecase }}</td>
+    <td>{{ emp.empSalary | currency }}</td>
+    <td>{{ emp.empDeptNo }}</td>
+    <td>{{ emp.empGrade | gradePipe }}</td>
+  </tr>
+</table>
