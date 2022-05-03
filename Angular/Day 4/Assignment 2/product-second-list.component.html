@@ -1,0 +1,21 @@
+<!-- <h2>Product Table</h2> -->
+
+<!-- <table border="2px" cellpadding="5px">
+  <tr>
+    <th>Product Id</th>
+    <th>Product Name</th>
+    <th>Product Category</th>
+    <th>Product Price</th>
+  </tr>
+  <tr *ngFor="let product of products">
+    <td>{{ product.pid }}</td>
+    <td>{{ product.pname | titlecase }}</td>
+    <td>{{ product.category | titlecase }}</td>
+    <td>{{ product.price | currency }}</td>
+  </tr>
+</table> -->
+<ul>
+  <li *ngFor="let product of products">
+    The product <b>{{ product.pname | titlecase }}</b> of {{ product.category | titlecase }} category is priced at <span style="color: black;">{{ product.price | currency }}</span>
+  </li>
+</ul>
