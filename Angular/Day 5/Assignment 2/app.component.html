@@ -1,0 +1,38 @@
+<style>
+  .c1 {
+    color: black;
+    border: 1px solid darkred;
+    width: 200px;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    background-color: white;
+  }
+
+  .c2 {
+    background-color: darkred;
+    color: white;
+    margin: 0px;
+  }
+</style>
+
+<!-- <app-fancy-card>
+  <h1 heading>Add New Task</h1>
+  <app-todo-input></app-todo-input>
+</app-fancy-card>
+<br>
+<br>
+<app-fancy-card>
+  <h1 heading>ToDo List</h1>
+  <app-todo-list></app-todo-list>
+</app-fancy-card>  -->
+
+<div >
+  <button (click)="onClick()">Load Users</button>
+</div>
+<br>
+<div class="c1" *ngFor="let user of users">
+  <img src="{{ user.avatar }}" alt="User avatar" width="200" height="200" />
+  <p class="c2">{{ user.first_name | titlecase }}</p>
+  <p class="c2">{{ user.email | lowercase }}</p>
+</div>
