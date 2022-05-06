@@ -1,0 +1,165 @@
+<table cellspacing="15px">
+  <tr>
+    <td>
+      <input
+        type="number"
+        [(ngModel)]="empNumber"
+        placeholder="Employee number"
+        class="ip"
+      />
+    </td>
+    <td>
+      <input
+        type="text"
+        [(ngModel)]="empName"
+        placeholder="Employee Name"
+        class="ip"
+      />
+    </td>
+    <td>
+      <input
+        type="text"
+        [(ngModel)]="empJob"
+        placeholder="Employee Job"
+        class="ip"
+      />
+    </td>
+    <td>
+      <input
+        type="number"
+        [(ngModel)]="empSalary"
+        placeholder="Employee Salary"
+        class="ip"
+      />
+    </td>
+    <td>
+      <input
+        type="number"
+        [(ngModel)]="empDeptNo"
+        placeholder="Employee Dept no"
+        class="ip"
+      />
+    </td>
+    <td>
+      <input
+        type="number"
+        [(ngModel)]="empGrade"
+        placeholder="Employee grade"
+        class="ip"
+      />
+    </td>
+  </tr>
+  </table>
+  <table cellspacing="15px">
+  <tr>
+    <td>
+      <input
+        type="button"
+        value="Add Employee"
+        (click)="addData_click()"
+        class="btn"
+      />
+    </td>
+    <td>
+      <input
+        type="button"
+        value="Update Employee"
+        (click)="updateData_click()"
+        class="btn"
+      />
+    </td>
+    <td>
+      <input
+        type="button"
+        value="Clear Fields"
+        (click)="clearFields()"
+        class="btn"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input
+        type="button"
+        value="Get All Employees"
+        (click)="getData_click()"
+        class="btn"
+      />
+    </td>
+    <td>
+      <input
+        type="button"
+        value="Get Employees By Job"
+        (click)="displayEmpDataByJob()"
+        class="btn"
+      />
+    </td>
+    <td>
+      <input
+        type="button"
+        value="Get Employees By Dept"
+        (click)="displayEmpDataByDept()"
+        class="btn"
+      />
+    </td>
+    <td>
+      <input
+        type="button"
+        value="Display only employee Name and Job"
+        (click)="displayEmpNameAndjob()"
+        class="btn"
+      />
+    </td>
+    <td>
+      <input
+        type="button"
+        value="Display Employee by excluding a dept"
+        (click)="displayEmpDataByExcludingDept()"
+        class="btn"
+      />
+    </td>
+    <td>
+      <input
+        type="button"
+        value="Sort Employees"
+        (click)="sortEmp()"
+        class="btn"
+      />
+    </td>
+  </tr>
+</table>
+<hr />
+
+<table border="2px" cellpadding="5px">
+  <tr>
+    <th>Employee Number</th>
+    <th>Employee Name</th>
+    <th>Employee Job</th>
+    <th>Employee Salary</th>
+    <th>Employee Dept number</th>
+    <th>Employee grade</th>
+    <th colspan="2">Operations</th>
+  </tr>
+  <tr *ngFor="let employee of employees">
+    <td>{{ employee.empNumber }}</td>
+    <td>{{ employee.empName | titlecase }}</td>
+    <td>{{ employee.empJob | titlecase }}</td>
+    <td>{{ employee.empSalary | currency }}</td>
+    <td>{{ employee.empDeptNo }}</td>
+    <td>{{ employee.empGrade | gradePipe }}</td>
+    <td>
+      <a
+        href="javascript:void(0);"
+        (click)="selectData_click(employee.empNumber)"
+        >Select</a
+      >
+    </td>
+    <td>
+      <a
+        href="javascript:void(0);"
+        (click)="deleteData_click(employee.empNumber)"
+        >Delete</a
+      >
+    </td>
+  </tr>
+</table>
