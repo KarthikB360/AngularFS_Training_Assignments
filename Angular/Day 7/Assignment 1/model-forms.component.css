@@ -1,0 +1,16 @@
+.ip {
+  padding: 4px 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+}
+
+.btn {
+  padding: 5px 10px;
+  background-color: darkgray;
+  border-radius: 5px;
+  color: white;
+}

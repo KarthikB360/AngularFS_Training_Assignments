@@ -1,0 +1,142 @@
+<fieldset>
+  <legend>Vehicle Registration Form</legend>
+  <form [formGroup]="registrationForm" (submit)="submit_click()">
+    <table cellpadding="5px" cellspacing="5px">
+      <tr>
+        <td>Owner Name:</td>
+        <td>
+          <input formControlName="ownerName" class="ip" />
+        </td>
+        <td>
+          <span
+            *ngIf="
+              registrationForm.controls['ownerName'].invalid &&
+              registrationForm.controls['ownerName'].dirty
+            "
+            class="error"
+            >Owner Name is required</span
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Contact Number:</td>
+        <td>
+          <input formControlName="contactNumber" class="ip" />
+        </td>
+        <td>
+          <span
+            *ngIf="
+              registrationForm.controls['contactNumber'].invalid &&
+              registrationForm.controls['contactNumber'].dirty
+            "
+            class="error"
+            >Contact number should be 10 digits, and it is required field</span
+          >
+        </td>
+      </tr>
+
+      <tr>
+        <td>Owner Email ID:</td>
+        <td>
+          <input formControlName="ownerEmail" class="ip" />
+        </td>
+        <td>
+          <span
+            *ngIf="
+              registrationForm.controls['ownerEmail'].invalid &&
+              registrationForm.controls['ownerEmail'].dirty
+            "
+            class="error"
+            >Email is required</span
+          >
+        </td>
+      </tr>
+
+      <tr>
+        <td>Vehicle Registration Number:</td>
+        <td>
+          <input formControlName="vehicleRegistrationNo" class="ip" />
+        </td>
+        <td>
+          <span
+            *ngIf="
+              registrationForm.controls['vehicleRegistrationNo'].invalid &&
+              registrationForm.controls['vehicleRegistrationNo'].dirty
+            "
+            class="error"
+            >Please check Vehicle registration number format</span
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td>
+          <input formControlName="address" class="ip"/>
+        </td>
+        <td>
+          <span
+            *ngIf="
+              registrationForm.controls['address'].invalid &&
+              registrationForm.controls['address'].dirty
+            "
+            class="error"
+            >Address is required</span
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Model:</td>
+        <td>
+          <input formControlName="model" class="ip" />
+        </td>
+        <td>
+          <span
+            *ngIf="
+              registrationForm.controls['model'].invalid &&
+              registrationForm.controls['model'].dirty
+            "
+            class="error"
+            >Model should be 10 Characters</span
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Color:</td>
+        <td>
+          <input formControlName="color" class="ip" />
+        </td>
+        <td>
+          <span
+            *ngIf="
+              registrationForm.controls['color'].invalid &&
+              registrationForm.controls['color'].dirty
+            "
+            class="error"
+            >Color is required</span
+          >
+        </td>
+      </tr>
+      <tr>
+        <td>Year:</td>
+        <td>
+          <input type="year" formControlName="year" class="ip" />
+        </td>
+        <td>
+          <span
+            *ngIf="
+              registrationForm.controls['year'].invalid &&
+              registrationForm.controls['year'].dirty
+            "
+            class="error"
+            >Year should be in between 2012 to 2022</span
+          >
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <button [disabled]="registrationForm.invalid" class="btn">Submit</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</fieldset>
