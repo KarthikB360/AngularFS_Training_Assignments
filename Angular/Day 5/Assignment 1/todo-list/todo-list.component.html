@@ -1,0 +1,33 @@
+<table border="0px" cellpadding="10px">
+  <tr *ngFor="let todo of toDoList">
+    <div style="border: 1px solid black; background-color: white">
+      <td colspan="10">
+        <input type="text" name="" value="{{ todo.todoText }}" [ngClass]="{'text-box': todo.isCheck === true}" [disabled]="!todo.isEdit" #text/>
+      </td>
+      <td>
+        <input type="checkbox" name="checkbox" (click)="onCheckboxClick(todo)" *ngIf="!todo.isEdit"/>
+      </td>
+      <td>
+        <img
+          [src]="todo.isEdit ? '../assets/tick.png' : 'https://www.nicepng.com/png/detail/810-8105676_png-file-svg-transparent-background-edit-icons-png.png'"
+          alt="edit"
+          width="20"
+          height="20"
+          (click)="onEditClick(todo,text.value)"
+          class="edit"
+        />
+      </td>
+      <td>
+        <img
+          src="https://toppng.com/uploads/preview/recycling-bin-vector-delete-icon-png-black-11563002079w1isxqyyiv.png"
+          alt="delete"
+          width="20"
+          height="20"
+          (click)="removeToDoEntry(todo)"
+        />
+      </td>
+    </div>
+  </tr>
+</table>
+<button (click)="deleteSelectedTasks()">Delete Selected Task</button>
+<button (click)="deleteAllTasks()">Delete All Task</button>

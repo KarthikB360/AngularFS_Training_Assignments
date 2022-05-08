@@ -1,0 +1,34 @@
+<style>
+  .ip {
+    width: 100%;
+    border: none;
+    height: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  .btn {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: darkgrey;
+    padding: 10px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+</style>
+
+<div>
+  <input
+    type="text"
+    class="ip"
+    name="task"
+    [(ngModel)]="value"
+    placeholder="Enter Task"
+  />
+</div>
+<br />
+<div>
+  <button type="button" class="btn" (click)="onSubmit()">Add Task</button>
+</div>
