@@ -1,0 +1,114 @@
+<style>
+  .bg1 {
+    background-color: lightskyblue;
+  }
+  .bg2 {
+    background-color: lightgrey;
+  }
+  .bg3 {
+    background-color: darkgrey;
+  }
+
+  .c1 {
+    color: black;
+    border: 1px solid darkred;
+    width: 200px;
+    margin: 5px;
+    float: left;
+    text-align: center;
+    background-color: white;
+  }
+
+  .c2 {
+    background-color: darkred;
+    color: white;
+    margin: 0px;
+  }
+
+  .c3 {
+    background-color: lightgrey;
+    color: black;
+    margin: 0px;
+  }
+</style>
+
+<h1>PRODUCTS</h1>
+<nav>
+  <img src="https://cdn-icons-png.flaticon.com/512/1994/1994760.png" alt="Details" width="40px" height="40px" (click)="setView('Details')" (onmouseover) ="setView('Details')" >
+  <img src="https://as2.ftcdn.net/v2/jpg/03/25/92/59/1000_F_325925947_wCBn0hQzMAthuDUwqUMS4kdRDimVKPH7.jpg" alt="Large Grid" width="40px" height="40px" (click)="setView('Large Grid')" (onmouseover) ="setView('Large Grid')" >
+  <img src="https://as2.ftcdn.net/v2/jpg/03/25/92/59/1000_F_325925947_wCBn0hQzMAthuDUwqUMS4kdRDimVKPH7.jpg" alt="Small Grid" width="35px" height="35px" (click)="setView('Small Grid')" (onmouseover) ="setView('Small Grid')" >
+  <img src="https://as2.ftcdn.net/v2/jpg/03/05/87/61/1000_F_305876177_4EzB8UJafxNruTRjfLgc57mb07Qn1cNv.jpg" alt="List" width="40px" height="40px" (click)="setView('List')" (onmouseover) ="setView('List')" >
+</nav>
+<br>
+<section [ngSwitch]="view">
+  <article *ngSwitchCase="'Details'">
+    <div>
+      <table border="1px" cellpadding="15px">
+        <tr class="bg1">
+          <th>Product Id</th>
+          <th>Product Name</th>
+          <th>Product Category</th>
+          <th>Product Price</th>
+        </tr>
+        <tr
+          *ngFor="
+            let product of products;
+            let evenValue = even;
+            let oddValue = odd
+          "
+          [ngClass]="{ bg2: oddValue, bg3: evenValue }"
+        >
+          <td>{{ product.pid }}</td>
+          <td>{{ product.pname | titlecase }}</td>
+          <td>{{ product.category | titlecase }}</td>
+          <td>{{ product.price | currency }}</td>
+        </tr>
+      </table>
+    </div>
+  </article>
+  <article *ngSwitchCase="'Large Grid'">
+    <div class="c1" *ngFor="let product of products">
+      <img
+        src="{{ product.image }}"
+        alt="{{ product.category }}"
+        width="200"
+        height="200"
+      />
+      <p class="c2">{{ product.pname | titlecase }}</p>
+      <p class="c3">{{ product.price | currency }}</p>
+    </div>
+  </article>
+  <article *ngSwitchCase="'Small Grid'">
+    <div class="c1" *ngFor="let product of products">
+      <img
+        src="{{ product.image }}"
+        alt="{{ product.category }}"
+        width="100"
+        height="100"
+      />
+      <p class="c2">{{ product.pname | titlecase }}</p>
+      <p class="c3">{{ product.category | titlecase }}</p>
+      <p class="c3">{{ product.price | currency }}</p>
+    </div>
+  </article>
+  <article *ngSwitchCase="'List'">
+    <ul>
+      <li *ngFor="let product of products">
+        The
+        <span style="color: blue; text-decoration: underline">{{
+          product.pname | titlecase
+        }}</span>
+        product price is
+        <span
+          [ngStyle]="{
+            color: product.category == 'shoes' ? 'Red' : 'Grey',
+            'font-style': 'italic'
+          }"
+          >{{ product.price | currency }}</span
+        >
+        .
+      </li>
+    </ul>
+  </article>
+  <article *ngSwitchDefault></article>
+</section>

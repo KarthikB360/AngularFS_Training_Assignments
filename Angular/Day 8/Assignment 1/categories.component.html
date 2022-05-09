@@ -1,0 +1,8 @@
+<app-fancy-card>
+  <h3 heading>Categories</h3>
+  <ul>
+    <li *ngFor="let category of categories">
+      <a [routerLink]="['/Categories', category]">{{ category | titlecase }}</a>
+    </li>
+  </ul>
+</app-fancy-card>
