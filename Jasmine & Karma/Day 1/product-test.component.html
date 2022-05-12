@@ -1,0 +1,32 @@
+<fieldset style="width: 50%;">
+  <legend>Product</legend>
+
+  <table>
+    <tr>
+      <td><label> Product name:</label></td>
+      <td><input type="text" [(ngModel)]="productName" /></td>
+    </tr>
+    <tr>
+      <td><label> Unit price:</label></td>
+      <td><input type="number" [(ngModel)]="unitPrice"/></td>
+    </tr>
+    <tr>
+      <td><label> Quantity:</label></td>
+      <td><input type="number" [(ngModel)]="quantity"/></td>
+    </tr>
+    <tr>
+      <td colspan="2px">
+        <button type="button" (click)="getTotalAmount()">click</button>
+      </td>
+    </tr>
+    <tr>
+        <td>
+            <label >Total amount:</label>
+        </td>
+        <td>
+            <p>{{totalAmount}}</p>
+            
+        </td>
+    </tr>
+  </table>
+</fieldset>
